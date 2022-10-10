@@ -1,11 +1,11 @@
-const post = () => {
+const post = async () => {
   return {
     id:'65765765',
     title: 'Post title one'
   }
 }
 
-const posts = () => {
+const posts = async () => {
   return [
     {
       id:'65765765',

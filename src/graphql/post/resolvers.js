@@ -1,25 +1,12 @@
-const post = async () => {
-  return {
-    id:'65765765',
-    title: 'Post title one'
-  }
+const post = async (parent, arg, context) => {
+  const response = await context.getPost(arg.id);
+
+  return response.json();
 }
 
-const posts = async () => {
-  return [
-    {
-      id:'65765765',
-      title: 'Post title one'
-    },
-    {
-      id:'5675675665756',
-      title: 'Post title two'
-    },
-    {
-      id:'980980980',
-      title: 'Post title three'
-    },
-  ]
+const posts = async (parent, arg, context) => {
+  const response = await context.getPosts();
+  return response.json();
 };
 
 export const postResolvers = {

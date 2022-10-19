@@ -5,9 +5,9 @@ const API_URL = 'http://localhost:3000';
 export const context = () => {
 
   return {
-    getUsers: () => fetch(`${API_URL}/users/`),
+    getUsers: (input = '') => fetch(`${API_URL}/users/?${input}`),
     getUser: (id = '') => fetch(`${API_URL}/users/${id}`),
-    getPosts: () => fetch(`${API_URL}/posts/`),
+    getPosts: (input = '') => fetch(`${API_URL}/posts/?${input}`),
     getPost: (id = '') => fetch(`${API_URL}/posts/${id}`),
   }
 }

@@ -1,6 +1,9 @@
 const users = async (parent, arg, context, info) => {
-  const users = await context.getUsers();
-  return users.json();
+
+  const apiFiltersInput = new URLSearchParams(arg.input);
+
+  const response = await context.getUsers(apiFiltersInput);
+  return response.json();
 }
 
 const user = async(_, { id }, { getUser }) => {

@@ -28,10 +28,17 @@ const getStarRankedPost = (id) => {
   return `Ranque do post ${randomNumber.toString()} do ID: ${id}`;
 }
 
+const getUser = async (id, context) =>  {
+  const response = await context(id);
+
+  return response.json();
+}
+
 export const postResolvers = {
   Query: {post , posts},
   Post: {
     watched: () =>  hasWatched(),
     starRankedPost: (parent, arg, context) => getStarRankedPost(parent.id),
+    user: (parent, arg, context) => getUser(parent.userId, context.getUser)
   },
 };

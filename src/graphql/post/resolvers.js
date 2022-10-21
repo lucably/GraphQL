@@ -16,28 +16,6 @@ const posts = async (parent, arg, context) => {
   const response = await context.getPosts(apiFiltersInput);
 
   return response.json();
-
-  /*  CONSULTA NO GRAPHQL SERVER
-
-  query Test($userId: ID!, $postId: ID!, $input: ApiFiltersInput) {
-
-    post(id: $postId) {
-      title
-      watched
-    }
-    posts(input: { //Lembrando que esses "_" é somente nesse no caso do db.json
-      _sort: "indexRef",
-      _limit: 3,
-      _order: "desc",
-      _start: 3,
-    }) {
-      title
-      id
-      starRankedPost
-      indexRef
-    }
-  }
-  */
 };
 
 const hasWatched = (isWatch = false) => {
